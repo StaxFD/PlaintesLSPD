@@ -25,6 +25,7 @@ local tablepositionsandblips = _Plaintes.PositionsPlaintes
 function _Plaintes.Menu:Main()
     _Plaintes.Menu.Create()
     RageUI.Visible(_Plaintes.Menu.main, not RageUI.Visible(_Plaintes.Menu.main))
+	TriggerServerEvent(("%s:RecupPlaintes_"):format(_Plaintes.Event.Prefix))
 	FreezeEntityPosition(PlayerPedId(),true)
     while _Plaintes.Menu.main do
         Citizen.Wait(0)
@@ -46,7 +47,6 @@ function _Plaintes.Menu:MainListe()
     while _Plaintes.Menu.Listemain do
         Citizen.Wait(0)
         RageUI.IsVisible(_Plaintes.Menu.Listemain, function()
-            TriggerServerEvent(("%s:RecupPlaintes_"):format(_Plaintes.Event.Prefix))
             _ListesPlaintesButton()
         end)
         RageUI.IsVisible(_Plaintes.Menu.intoliste, function()
